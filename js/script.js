@@ -7,7 +7,7 @@ $(function() {
   let selectToDataCode = 'PLN';
 
   // Get data from NBP api
-  const dataUrl = 'http://api.nbp.pl/api/exchangerates/tables/a/?format=json';
+  const dataUrl = 'https://api.nbp.pl/api/exchangerates/tables/a/?format=json';
 
   // New PLN obj
   const pln = {
