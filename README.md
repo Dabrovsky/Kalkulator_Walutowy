@@ -5,3 +5,4 @@ Strona kalkulatora walutowego, korzystająca z aktualnych średnich kursów walu
 Zobacz na żywo [tutaj](https://dabrovsky.github.io/Kalkulator_Walutowy/)
 
 ![layout](img/preview.png)
+![layout](img/preview_mobile.png)
