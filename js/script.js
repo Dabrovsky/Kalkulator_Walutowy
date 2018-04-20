@@ -311,8 +311,8 @@ $(function() {
                       $('.value-last').text(lastValue);
                       $('.value-sum-text').text(valueSum(firstValue, lastValue));
                       $('.ct-series .ct-label').delay(1300).animate({'opacity' : '1'}, 800);
-                      $('.progressbar--wrapper .selected-flag').attr('src', `flags/${code}.png`);
-                      $('.last10Values--title').html(`<img class="selected-flag" src="flags/${code}.png"> ${data.code} (${data.currency}) - ${lastValue} PLN (${data.rates[9].effectiveDate})`);
+                      $('.progressbar--wrapper .selected-flag').attr('src', `flags/${data.code}.png`);
+                      $('.last10Values--title').html(`<img class="selected-flag" src="flags/${data.code}.png"> ${data.code} (${data.currency}) - ${lastValue} PLN (${data.rates[9].effectiveDate})`);
                       if (calculateSum(firstValue, lastValue)) {
                           $('.value-sum').addClass('up')
                           .text((lastValue - firstValue).toString().substring(0, lastValue.toString().length) + ' PLN (' + calculatePercentage(firstValue, lastValue) + '%)');
