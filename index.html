@@ -1,95 +1,218 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Kalkulator walutowy</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Saira:400,500" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <title>Kalkulator Walut</title>
+  <meta name="author" content="Dabrovskyweb">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Saira:400,500" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+  <script src="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+  <script src="js/chartist-plugin-pointlabels.js"></script>
 </head>
+
 <body>
 
-<section class="container offset-top">
-  <div class="col-xs-12 col-sm-12">
-    <div class="col-xs-12 col-sm-2">
-      <div class="box box-top-left">
-        <span class="small-top-text">Tabela kursów średnich NBP z dnia <span class="small-top-text-date"></span></span>
-      </div>
-      <div class="box offset-bottom">
-          <div class="th-table-buttons-up">
-            <div class="th-table-button-up">
-              <i class="th-table-button-arrow-up"></i>
-            </div>
-          </div>
-          <div class="th-table">
-            <div class="th-table-scrolled"></div>
-          </div>
-          <div class="th-table-buttons-down">
-            <div class="th-table-button-down">
-              <i class="th-table-button-arrow-down"></i>
-            </div>
-          </div>
-      </div>
+  <header>
+    <div class="container">
+      <a href="index.html"><img src="img/logo.svg" height="40" alt="Kalkulator Walut" /></a>
+      <nav class="navbar-collapse" role="navigation">
+        <ul class="nav navbar-nav">
+          <li><a href="#" data-page="page-one" class="active">Kalkulator</a></li>
+          <li><a href="#" data-page="page-two">Historia</a></li>
+        </ul>
+      </nav>
     </div>
+  </header>
 
-    <div class="col-xs-12 col-sm-10">
-      <div class="box offset-bottom min-height">
-        <div class="page-header">
-          <h1>Kalkulator Walutowy</h1>
+  <main class="container offset-top">
+    <section class="col-xs-12 col-md-12" data-page="page-one">
+      <div class="col1 clearfix">
+        <div class="col-xs-12 col-md-2 col--top-left">
+          <div class="box box-top-left">
+            <span class="small-top-text">Tabela kursów średnich NBP z dnia <span class="small-top-text-date"></span></span>
+          </div>
+          <div class="box">
+            <div class="th-table-buttons-up">
+              <div class="th-table-button-up">
+                <i class="th-table-button-arrow-up"></i>
+              </div>
+            </div>
+            <div class="th-table">
+              <div class="th-table-scrolled"></div>
+            </div>
+            <div class="th-table-buttons-down">
+              <div class="th-table-button-down">
+                <i class="th-table-button-arrow-down"></i>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="panel-body">
+        <div class="col-xs-12 col-md-10">
+          <div class="box col--top-right">
+            <div class="page-header">
+              <h1>Kalkulator Walut</h1>
+            </div>
 
-          <div class="col-sm-6">
-            <div class="col-sm-12">
-              <label>Podaj kwotę:</label>
-              <span class="form-control input">
-                <input type="text" class="inputValue">
-              </span>
-              <span class="input-alert"></span>
-            </div>
-            <div class="col-sm-12">
-              <label>Przelicz z:</label>
-              <span class="form-control select select-from"><img class="selected-flag-from" src="flags/PLN.png"><span class="select-from-text"></span><span class="form-control-arrow-down"></span></span>
-                <ul class="select-values select-values-from"></ul>
-            </div>
-            <div class="col-sm-12">
-              <label>Przelicz na:</label>
-              <span class="form-control select select-to"><img class="selected-flag-to" src="flags/PLN.png"><span class="select-to-text"></span><span class="form-control-arrow-down"></span></span>
-                <ul class="select-values select-values-to"></ul>
-            </div>
-            <div class="col-sm-12">
-              <p>
-                <button class="btn btn-primary convert">Przelicz</button>
-              </p>
-            </div>
-          </div>
+            <div class="panel-body">
 
-          <div class="col-sm-6">
-            <div class="col-sm-12">
-              <label>Aktualny wynik:</label>
-              <div class="results-top">
-                <div class="resultsZero">
-                  <div class="col-xs-12 col-sm-12">
-                    <div class="resultsTextCenter">0</div>
-                    <div class="resultsBottomTextCenter">Zero</div>
-                  </div>
+              <div class="col-xs-12 col-md-12">
+                <div class="col-xs-12 col-md-2">
+                  <span class="form-control input">
+                    <label>Podaj kwotę:</label>
+                    <input type="text" class="inputValue" value="0">
+                    <span class="input-alert"></span>
+                  </span>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                  <span class="form-control select select-from">
+                    <label>Przelicz z:</label>
+                    <img class="selected-flag" src="flags/PLN.png" alt="PLN">
+                    <span class="select-text" data-mid="1" data-code="PLN">PLN (złoty)</span>
+                  <span class="form-control-arrow-down"></span>
+                  </span>
+                  <ul class="select-values select-values-from"></ul>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                  <span class="form-control select select-to">
+                    <label>Przelicz na:</label>
+                    <img class="selected-flag" src="flags/PLN.png" alt="PLN">
+                    <span class="select-text" data-mid="1" data-code="PLN">PLN (złoty)</span>
+                  <span class="form-control-arrow-down"></span>
+                  </span>
+                  <ul class="select-values select-values-to"></ul>
+                </div>
+                <div class="col-xs-12 col-md-2">
+                  <button class="btn btn-primary convert">Przelicz</button>
                 </div>
               </div>
-              <label class="label-previous">Poprzedni wynik:</label>
-              <div class="results-bottom"></div>
+
+              <div class="col-xs-12 col-md-12">
+                <div class="col-xs-12 col-md-12">
+                  <label class="btn--results active" data-result="1">Aktualny Wynik</label>
+                  <label class="btn--results label-previous" data-result="2">Poprzedni Wynik</label>
+                  <div class="results-top">
+                    <div class="resultsZero">
+                      <div class="col-xs-12 col-md-12">
+                        <div class="resultsTextCenter">
+                          <div class="resultsBottomTextCenter">0<br/>Zero</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="results-bottom"></div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 chartist">
+        <div class="col-xs-12 box">
+          <div class="page-header">
+            <h1>10 ostatnich notowań kursu średniego</h1>
+          </div>
+          <div class="col-xs-12 chartist--inputs">
+            <div class="col-xs-12 col-sm-12 col-md-4">
+              <span class="form-control select">
+                <label>Wybierz walutę:</label>
+                <img class="selected-flag" src="flags/USD.png" alt="USD">
+                <span class="select-text" data-mid="" data-code=""></span>
+              <span class="form-control-arrow-down"></span>
+              </span>
+              <ul class="select-values"></ul>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-2">
+              <button class="btn btn-primary generate">Generuj</button>
+            </div>
+          </div>
+          <!-- chartist -->
+          <div class="col-xs-12 col-md-6 chartist--wrapper">
+            <div class="col-xs-12 br-chartist ct-chart ct-perfect-fourth"></div>
+          </div>
+          <!-- end -->
+          <div class="col-xs-12 col-md-6 progressbar--wrapper">
+            <div class="col-xs-12">
+              <span class="last10Values--title"><img class="selected-flag" src="flags/USD.png" alt="USD"> USD (Dolar Amerykański)</span>
+            </div>
+            <div class="col-xs-12">
+              <div class="progressbar--holder clearfix">
+                <div class="progress progress-sm">
+                  <div aria-valuemax="100" aria-valuemin="0" role="progressbar" class="progress-bar progress-bar-up">0%</div>
+                  <div aria-valuemax="100" aria-valuemin="0" role="progressbar" class="progress-bar progress-bar-down">0%</div>
+                </div>
+                <div class="col-xs-6">
+                  <span class="progressbar--wrapper-sublabel">+ <span class="sublabel-up">0%</span> (w skali 10-dniowej)</span>
+                </div>
+                <div class="col-xs-6" style="text-align:right">
+                  <span class="progressbar--wrapper-sublabel">- <span class="sublabel-down">0%</span> (w skali 10-dniowej)</span>
+                </div>
+              </div>
             </div>
           </div>
 
+          <div class="col-xs-12 col-md-6 progressbar--wrapper">
+            <div style="padding: 0 5px; margin-bottom: 40px;">
+              <div class="progressbar--wrapper-sublabel clearfix lastValue--box">
+                <div class="col-xs-12 col-sm-12">
+                  <div class="lastValue--box-title">Średni kurs -</div>
+                  <ul>
+                    <li>Początkowa wartość: <span class="value-first">0</span> PLN</li>
+                    <li>Końcowa wartość: <span class="value-last">0</span> PLN</li>
+                    <li><span class="value-sum-text"></span><span class="value-sum">0</span></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-<script src="js/script.js"></script>
+    <section class="col-xs-12 col-md-12" data-page="page-two">
+      <div class="col-xs-12 history">
+        <div class="col-xs-12 box">
+          <div class="page-header">
+            <h1>Historia operacji</h1>
+          </div>
+          <div class="history--show-panel clearfix">
+            <div class="col-xs-12 col-sm-6 col-md-3">
+              <div class="history--show-title">
+                <span class="form-control select">
+                  <label>Pokaż ostatnie:</label>
+                  <span class="select-text history--numbers-of" data-value="10">10 wyników</span>
+                </span>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-2">
+              <button class="btn btn-primary show-history">Pokaż</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 history--list"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer--copyright">Copyright © 2018 <a href="http://dabrovskyweb.com" target="_blank">Dabrovskyweb.com</a></div>
+    </div>
+  </footer>
+
+  <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+  <script src="js/script.js"></script>
+
 </body>
+
 </html>
