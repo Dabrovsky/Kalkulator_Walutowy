@@ -467,19 +467,7 @@ $(function() {
                               </div>`;
                 $('.history--list').prepend(div);
             });
-            setTimeout(() => {
-                const elements = $('.history--list').children();
-                for (let i = 0; i < elements.length; i++) {
-                    (function(ind) {
-                        setTimeout(function() {
-                            $(elements[i]).addClass('active');
-                        }, 30 * ind);
-                    })(i);
-                }
-            }, 200);
         }
-
-
 
         historyBtn = () => {
             $('.history--show-title .select').on('click', function() {
@@ -488,6 +476,17 @@ $(function() {
             $('button.show-history').on('click', function() {
                 const numbers = parseInt($(this).parent().parent().find('.history--numbers-of').attr('data-value'));
                 getHistory(numbers);
+                setTimeout(() => {
+                    const elements = $('.history--list').children();
+                    elements.css('opacity', '.7');
+                    for (let i = 0; i < elements.length; i++) {
+                        (function(ind) {
+                            setTimeout(function() {
+                                $(elements[i]).animate({'opacity' : '1'}, 100);
+                            }, 30 * ind);
+                        })(i);
+                    }
+                }, 200);
             });
         }
         // -> history end

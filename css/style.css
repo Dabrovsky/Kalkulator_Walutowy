@@ -336,8 +336,9 @@ img.selected-flag {
 /* --right box right-- */
 
 .results, .resultsZero {
-    display: flow-root;
+    display: inline-block;
     position: relative;
+    width: 100%;
     background: -webkit-gradient(linear, right top, left top, from(#2060a2), to(#1c5086));
     background: linear-gradient(to left, #2060a2, #1c5086);
     border-radius: 5px;
@@ -760,18 +761,6 @@ button.convert, button.generate {
 
 .history--show-title.active .form-control-arrow-down::after {
     top: 6px;
-}
-
-.history--list .results {
-    -webkit-transform: scale(0);
-            transform: scale(0);
-    -webkit-transition: .5s;
-    transition: .5s;
-}
-
-.history--list .results.active {
-    -webkit-transform: scale(1);
-            transform: scale(1);
 }
 
 button.show-history {
