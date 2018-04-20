@@ -643,7 +643,7 @@ button.convert, button.generate {
     background: -webkit-gradient(linear, left top, right top, from(#1a6db5), to(#3891e0));
     background: linear-gradient(to right, #1a6db5, #3891e0);
     border-radius: 3px;
-    padding: 20px;
+    padding: 20px 15px;
     color: rgba(255, 255, 255, 0.9);;
 }
 
@@ -663,6 +663,7 @@ button.convert, button.generate {
 .lastValue--box ul li {
     position: relative;
     padding-left: 10px;
+    font-size: 12px;
 }
 
 .lastValue--box ul li:before {
@@ -836,6 +837,12 @@ footer .footer--copyright {
     .btn--results.label-previous {
         margin-left: 5px;
         margin-bottom: 0;
+    }
+    .lastValue--box {
+        padding: 20px;
+    }
+    .lastValue--box ul li {
+        font-size: 14px;
     }
 }
 
