@@ -262,7 +262,7 @@ $(function() {
         }
 
         generateList = (code) => {
-            const url = `http://api.nbp.pl/api/exchangerates/rates/a/${code}/last/10/?format=json`;
+            const url = `https://api.nbp.pl/api/exchangerates/rates/a/${code}/last/10/?format=json`;
               $.ajax({
                   url: url,
                   dataType: 'json',
