@@ -1,6 +1,6 @@
 # Currency Calculator
 
-> Hi! This is a simple **currency calculator page** coded and designed by [@Dabrovsky](https://github.com/Dabrovsky) 
+> Hi! This is a simple **currency calculator page** coded and designed by [@Dabrovsky](https://github.com/Dabrovsky)<br/>
 Done to learn my coding skills.
 
 ### Functions:
