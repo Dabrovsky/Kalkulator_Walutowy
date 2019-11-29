@@ -12,10 +12,10 @@ Done to learn my coding skills.
 ### Technologies used:
 * HTML5
 * CSS3
-* Bootstrap 3
+* Bootstrap 3 [https://getbootstrap.com/](https://getbootstrap.com/)
 * jQuery
 * Ajax
-* Firebase
+* Firebase [https://firebase.google.com/](https://firebase.google.com/)
 * NBP Web API [http://api.nbp.pl/](http://api.nbp.pl/)
 
 ### Strategy:
