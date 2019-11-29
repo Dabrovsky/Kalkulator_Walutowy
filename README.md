@@ -1,6 +1,6 @@
 # Currency Calculator
 
-> Hi! This is a simple **currency calculator page** coded and designed by [@Dabrovsky](https://github.com/Dabrovsky)<br/>
+> Hi! This is a simple **currency calculator page** coded and designed by me [@Dabrovsky](https://github.com/Dabrovsky)<br/>
 Done to learn my coding skills.
 
 ### Functions:
@@ -22,7 +22,7 @@ Done to learn my coding skills.
 * RWD
 * Mobile First
 
-> See live version [here](https://dabrovsky.github.io/Kalkulator_Walutowy/)
+> See live version [here](https://dabrovsky.github.io/currency-calculator/)
 
 ### Screenshot:
 ![layout](img/preview.png)
