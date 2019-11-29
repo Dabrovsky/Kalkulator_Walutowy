@@ -1,6 +1,7 @@
 # Currency Calculator
 
-Hi! This is a simple **currency calculator page** coded and designed by myself to learn my coding skills.
+> Hi! This is a simple **currency calculator page** coded and designed by [@Dabrovsky](https://github.com/Dabrovsky)
+> Done to learn my coding skills.
 
 ### Functions:
 * Currency conversion
@@ -15,7 +16,7 @@ Hi! This is a simple **currency calculator page** coded and designed by myself t
 * jQuery
 * Ajax
 * Firebase
-* NBP Web API
+* NBP Web API [http://api.nbp.pl/](http://api.nbp.pl/)
 
 ### Strategy:
 * RWD
