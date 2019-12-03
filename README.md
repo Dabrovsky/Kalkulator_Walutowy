@@ -13,7 +13,7 @@
 
 > Because this page was written some time ago and I learned something new<br/>I plan to refactor some parts of the code.
 
-### To do:
+### What I want to do:
 
 * Refactor CSS code to SCSS
 * Implement BEM methodology
