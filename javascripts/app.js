@@ -1,3 +1,5 @@
+import styles from '../scss/app.scss';
+
 $(function() {
 
     const app = (function($) {
@@ -32,7 +34,7 @@ $(function() {
         // ---------------------------------------------
 
         // Date generator ------------------------------
-        getDate = () => {
+        const getDate = () => {
             const newDate = new Date();
             const days = ["Niedziela", "Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota"];
             const months = ["Styczeń", "Luty", "Marzec", "Kwiecień", "Maj", "Czerwiec", "Lipiec", "Sierpień", "Wrzesień", "Październik", "Listopad", "Grudzień"];
@@ -44,10 +46,10 @@ $(function() {
         }
         // ---------------------------------------------
 
-        minHeight = () => $('.col--top-right').css('min-height', $('.col--top-left').outerHeight());
-        resize = () => $(window).on('resize', minHeight);
+        const minHeight = () => $('.col--top-right').css('min-height', $('.col--top-left').outerHeight());
+        const resize = () => $(window).on('resize', minHeight);
 
-        navigation = () => {
+        const navigation = () => {
             navBtns.on('click', function(event) {
                 event.preventDefault();
                 const page = $(this).attr('data-page');
@@ -65,7 +67,7 @@ $(function() {
         }, 300);
 
         // get data onload ->
-        getDataRates = () => {
+        const getDataRates = () => {
             $.ajax({
                 url: url,
                 dataType: 'json',
@@ -108,19 +110,19 @@ $(function() {
 
 
         // select ->
-        selectWrapper = () => {
+        const selectWrapper = () => {
             select.on('click', function() {
                 if ($(this).parent().hasClass('active')) { $(this).parent().removeClass('active'); }
                 else { select.parent().removeClass('active'); $(this).parent().addClass('active'); }
             });
         }
 
-        selectedList = () => {
+        const selectedList = () => {
             selectList.each(function() {
                 $(this).on('click', 'li', function() {
                     $(this).parent().parent().find('.select-text').text($(this).text())
-                    thisDataMid = $(this).data('mid');
-                    thisDataCode = $(this).data('code');
+                    const thisDataMid = $(this).data('mid');
+                    const thisDataCode = $(this).data('code');
                     $(this).parent().parent().find('.select-text').attr('data-mid', thisDataMid);
                     $(this).parent().parent().find('.select-text').attr('data-code', thisDataCode);
                     $(this).parent().parent().find('.selected-flag').attr({'src' : `./flags/${thisDataCode}.png`, 'alt' : `${thisDataCode}`});
@@ -130,7 +132,7 @@ $(function() {
             });
         }
 
-        bodyEvents = () => {
+        const bodyEvents = () => {
             body.on('click', function(event) {
                 if ($(event.target).parent().hasClass('active') || $(event.target).parent().hasClass('select')) {
                 } else {
@@ -142,14 +144,14 @@ $(function() {
 
 
         // th-table ->
-        thTableScrolled = (scrolled) => {
+        const thTableScrolled = (scrolled) => {
             $('.th-table').stop().animate({
                 scrollTop: scrolled
             });
         }
 
         // th-table-scrolled down button
-        thTableScrolledDown = () => {
+        const thTableScrolledDown = () => {
             thTableBtnDown.on('click', function() {
                 thTableInHeight = $('.th-table-in').outerHeight();
                 maxScroll = thTableInHeight * 6;
@@ -159,7 +161,7 @@ $(function() {
         }
 
         // th-table-scrolled up button
-        thTableScrolledUp = () => {
+        const thTableScrolledUp = () => {
             thTableBtnUp.on('click', function() {
                 thTableInHeight = $('.th-table-in').outerHeight();
                 scrolled === 0 ? scrolled = 0 : scrolled = scrolled - thTableInHeight;
@@ -170,7 +172,7 @@ $(function() {
 
 
         // convert ->
-        convertValue = () => {
+        const convertValue = () => {
             const inputValue = $('.inputValue').val();
             const inputValueMod = inputValue * 100 + 0.001;
             const inputValueModToFixed = inputValueMod.toFixed(0);
@@ -196,15 +198,15 @@ $(function() {
                 $('.input').removeClass('alert-border');
 
                 // push data to firebase -----
-                historyValue = history.push({
-                            valueSet          : inputResult + ' ' + selectFromDataCode,
-                            valueSetCode      : bottomFromTxt.substring(5, bottomFromTxt.length-1),
-                            valueSetBottom    : `1 ${selectFromDataCode} = ${((selectFromDataMid / selectToDataMid) * 1).toFixed(2)} ${selectToDataCode}`,
-                            valueResult       : results + ' ' + selectToDataCode,
-                            valueResultCode   : bottomToTxt.substring(5, bottomToTxt.length-1),
-                            valueResultBottom : `1 ${selectToDataCode} = ${((selectToDataMid / selectFromDataMid) * 1).toFixed(2)} ${selectFromDataCode}`,
-                            date              : getDate()
-                        });
+                history.push({
+                    valueSet          : inputResult + ' ' + selectFromDataCode,
+                    valueSetCode      : bottomFromTxt.substring(5, bottomFromTxt.length-1),
+                    valueSetBottom    : `1 ${selectFromDataCode} = ${((selectFromDataMid / selectToDataMid) * 1).toFixed(2)} ${selectToDataCode}`,
+                    valueResult       : results + ' ' + selectToDataCode,
+                    valueResultCode   : bottomToTxt.substring(5, bottomToTxt.length-1),
+                    valueResultBottom : `1 ${selectToDataCode} = ${((selectToDataMid / selectFromDataMid) * 1).toFixed(2)} ${selectFromDataCode}`,
+                    date              : getDate()
+                });
                 // --------------------------
 
                 const resultsDiv = `<div class="results latestResults">
@@ -242,7 +244,7 @@ $(function() {
             };
         }
 
-        convert = () => {
+        const convert = () => {
             btnConvert.on('click', convertValue);
             btnResultsSwitch.on('click', function() {
                 btnResultsSwitch.removeClass('active');
@@ -257,11 +259,11 @@ $(function() {
 
 
         // tableList generate ->
-        isPlusOrMinus = (a, b) => {
+        const isPlusOrMinus = (a, b) => {
             return (a > b) ? '#0082CD' : 'red';
         }
 
-        generateList = (code) => {
+        const generateList = (code) => {
             const url = `https://api.nbp.pl/api/exchangerates/rates/a/${code}/last/10/?format=json`;
               $.ajax({
                   url: url,
@@ -275,9 +277,9 @@ $(function() {
 
                   dane.forEach(i => arr.push(i.mid));
 
-                  let num1 = 0, num2 = 0;
+                  let num1 = 0, num2 = 0, arrMinus, arrPlus;
 
-                  is = (a, b) => {
+                  const is = (a, b) => {
                       if (a > b) { num1++; arrPlus = [num1+1]; } else { num2++; arrMinus = [num2]; };
                   }
 
@@ -285,7 +287,7 @@ $(function() {
                       is(data.rates[i].mid, data.rates[i-1].mid)
                   }
 
-                  valueSum = (a, b) => {
+                  const valueSum = (a, b) => {
                       if (a > b) {
                           return 'Spadek wartości o: ';
                       } else if (a < b) {
@@ -294,12 +296,12 @@ $(function() {
                       return 'Brak różnicy wartości: ';
                   }
 
-                  calculateSum = (a, b) => {
+                  const calculateSum = (a, b) => {
                       if (a < b) { return true; }
                       return false;
                   }
 
-                  calculatePercentage = (a, b) => {
+                  const calculatePercentage = (a, b) => {
                       if (a < b) { return '+' + (((b - a) / b) * 100).toString().substr(0, lastValue.toString().length) };
                       return '-' + (((a - b) / a) * 100).toString().substr(0, lastValue.toString().length);
                   }
@@ -436,7 +438,7 @@ $(function() {
               });
         };
 
-        generateBtn = () => {
+        const generateBtn = () => {
             btnGenerateList.on('click', function() {
                 generateList($(this).parent().parent().find('.select-text').attr('data-code'));
             });
@@ -445,7 +447,7 @@ $(function() {
 
 
         // -> history
-        getHistory = (value) => {
+        const getHistory = (value) => {
             $('.history--list').find('.results').remove();
             history.limitToLast(value).on("child_added", function(data) {
                 const values = data.val();
@@ -469,7 +471,7 @@ $(function() {
             });
         }
 
-        historyBtn = () => {
+        const historyBtn = () => {
             $('.history--show-title .select').on('click', function() {
                 ($('.history--numbers-of').attr('data-value') === '10') ? $('.history--numbers-of').attr('data-value', '20').text('20 wyników') : $('.history--numbers-of').attr('data-value', '10').text('10 wyników');
             });
@@ -492,7 +494,7 @@ $(function() {
         // -> history end
 
 
-        init = () => {
+        const init = () => {
             navigation();
             resize();
             getDataRates();
