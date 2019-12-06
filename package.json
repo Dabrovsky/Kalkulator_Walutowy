@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Dabrovsky/currency-calculator.git"
+    "url": "git+https://github.com/Dabrovsky/currency-calculator.git"
   },
   "resolutions": {
     "terser": "3.14.1"
@@ -35,6 +35,7 @@
     "whatwg-fetch": "2.0.4"
   },
   "dependencies": {
+    "jquery": "^3.4.1",
     "requirejs": "^2.3.6"
   }
 }

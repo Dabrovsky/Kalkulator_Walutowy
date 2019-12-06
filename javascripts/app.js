@@ -1,4 +1,6 @@
-import styles from '../scss/app.scss';
+import '../scss/app.scss';
+import $ from 'jquery';
+window.jQuery = $;
 
 $(function() {
 
@@ -514,6 +516,5 @@ $(function() {
         }
 
     })(jQuery);
-    app.init;
 
 });
