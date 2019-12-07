@@ -3,7 +3,7 @@ require('whatwg-fetch');
 
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   entry: [
@@ -58,7 +58,10 @@ module.exports = {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin('dist', {} ),
+    new CleanWebpackPlugin({
+      dry: true,
+      verbose: true,
+    }),
     new MiniCssExtractPlugin({
       filename: '[name].bundle.css',
     })
