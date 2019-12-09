@@ -2,7 +2,7 @@
 
 ### Update 2019.
 
-> Because this page was written some time ago and I learned something new<br/>I plan to refactor some parts of the code.
+> Because this page was written some time ago and I've learned something new<br/>I want to refactor some parts of the code.
 
 ### What I want to do:
 
@@ -13,7 +13,7 @@
 
 <hr>
 
-> Hi! This is a simple **currency calculator** page coded and designed by me [@Dabrovsky](https://github.com/Dabrovsky)<br/>Build to learn my coding skills.
+> Hi! This is a simple **currency calculator** page written and designed by me [@Dabrovsky](https://github.com/Dabrovsky)<br/>Build to learn my coding skills.
 
 ### Functions:
 
@@ -47,13 +47,13 @@ cd currency-calculator
 npm install
 ```
 
-next run the following
+Run the following command for development
 
 ```bash
 npm run dev
 ```
 
-or for production
+Or for production
 
 ```bash
 npm run prod
@@ -62,8 +62,6 @@ npm run prod
 Thats all.
 
 <hr>
-
-You can see the live version [here](https://dabrovsky.github.io/currency-calculator/)
 
 ### Screenshot:
 
